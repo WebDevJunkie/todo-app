@@ -1,5 +1,6 @@
 import React, { useEffect, useState, Fragment } from "react";
 import axios from 'axios';
+import TodoForm from "./TodoForm";
 
 const TodoList = () => {
     const [todos, setTodos] = useState([]);
@@ -13,12 +14,17 @@ const TodoList = () => {
         setTodos(todos);
     }
 
+    const loadNewTodos = async () => {
+        await fetchTodos();
+    }
+
     return (
         <Fragment>
             <h1>
                 Todo List
             </h1>
             { todos.map(todo => <div key={todo._id}>{todo.title}: {todo.description}</div>) }
+            <TodoForm loadNewTodos={loadNewTodos} />
         </Fragment>
     );
 }

@@ -1,0 +1,17 @@
+{
+  "name": "serverless-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "serverless offline --httpPort 4000"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "serverless": "^3.27.0",
+    "serverless-bundle": "^6.0.0",
+    "serverless-offline": "^12.0.4"
+  }
+}

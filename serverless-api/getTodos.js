@@ -1,25 +1,13 @@
 import dbConnect from "./dbConnect";
+import ResponseWrapper from "./responseWrapper";
 
 exports.handler = async event => {
+    const responseWrapper = new ResponseWrapper();
     try {
         await dbConnect();
-        return {
-            statusCode: 200,
-            headers: {
-                'Access-Control-Allow-Origin': '*',
-                'Access-Control-Allow-Credentials': true,
-            },
-            body: JSON.stringify({ message: 'get todos' })
-        };
+        return responseWrapper.success({ message: 'get todos' });
     } catch (error) {
         console.log(error.message);
-        return {
-            statusCode: 500,
-            headers: {
-                'Access-Control-Allow-Origin': '*',
-                'Access-Control-Allow-Credentials': true,
-            },
-            body: JSON.stringify({ message: 'server error' })
-        };
+        return responseWrapper.failure({ message: 'server error' });
     }
 };

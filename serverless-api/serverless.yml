@@ -1,0 +1,18 @@
+service: todo-app-api
+
+plugins:
+  - serverless-bundle
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+
+functions:
+  getTodos:
+    handler: getTodos.handler
+    events:
+      - http:
+          path: todos
+          method: get
+          cors: true

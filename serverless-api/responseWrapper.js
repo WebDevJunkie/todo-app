@@ -3,6 +3,10 @@ class ResponseWrapper {
         return this._buildResponse(200, body);
     }
 
+    notFound(body) {
+        return this._buildResponse(404, body);
+    }
+
     failure(body) {
         return this._buildResponse(500, body);
     }

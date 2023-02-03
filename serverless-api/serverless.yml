@@ -16,3 +16,35 @@ functions:
           path: todos
           method: get
           cors: true
+
+  getTodo:
+    handler: getTodo.handler
+    events:
+      - http:
+          path: todos/{id}
+          method: get
+          cors: true
+
+  deleteTodo:
+    handler: deleteTodo.handler
+    events:
+      - http:
+          path: todos/{id}
+          method: delete
+          cors: true
+
+  createTodo:
+    handler: createTodo.handler
+    events:
+      - http:
+          path: todos
+          method: post
+          cors: true
+
+  updateTodo:
+    handler: updateTodo.handler
+    events:
+      - http:
+          path: todos/{id}
+          method: put
+          cors: true
